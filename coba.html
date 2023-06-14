@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tutorial Belajar JavaScript</title>
+</head>
+  
+<h3>Contoh 3: Mengambil nilai tag input, 
+tampilkan nilai pada jendela baru</h3>
+ 
+<button id="tombol_jendela">Buat Jendela Baru</button>
+ 
+<br/>
+<br/>
+ 
+<form onsubmit="return false">
+  <label>Rika Pratiwi: </label>
+  <input type="text" id="input_form" value="90"/>
+  <button id="tombol_form">
+     Tampilkan Nilai pada jendela baru
+   </button>
+</form>
+  
+<script>
+ 
+document.getElementById("tombol_jendela").
+addEventListener("click", jendela_baru);
+  
+document.getElementById("tombol_form").
+addEventListener("click", tampilkan_nilai_form);
+  
+function tampilkan_nilai_form(){
+    var nilai_form=document.getElementById("input_form").value;
+    newWindow.document.getElementById("hasil").innerHTML=nilai_form;
+}
+ 
+function jendela_baru(){
+newWindow = window.open("../");
+newWindow.document.write("<h2>Hasil: <span id='hasil'></span></h2>");
+ 
+// newWindow akan menjadi global variabel, 
+// sehingga bisa diakses dari fungsi tampilkan_nilai_form
+}
+ 
+</script>
+</body>
+</html>
